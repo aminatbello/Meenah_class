@@ -19,3 +19,5 @@ else {
 console.log("The largest number is " + largest);
 
 console.log('hello world');
+
+console.log('A new world');
