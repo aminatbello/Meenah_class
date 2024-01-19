@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Task7 {
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/Users/aminatbello/Desktop/Meenah_class/Module4B/Task/Task3/src/chromedriver-mac-arm64/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/aminatbello/Desktop/Meenah_class/Module4B/Task/Task7/src/chromedriver-mac-arm64/chromedriver");
 
         WebDriver driver = new ChromeDriver();
 
@@ -30,11 +30,14 @@ public class Task7 {
 
         for (WebElement element : getWeatherForDays) {
             String daysReturned = element.findElement(By.xpath(".//div[@class='city_fc_date fs0']")).getText();
+            String dateReturned = daysReturned.substring(0,6);
             daysReturned = daysReturned.substring(8 ,11);
 
             String weatherForEachDay = element.findElement(By.xpath(".//div[@class='city_fc_temp fs0']")).getText();
 
-            System.out.println("The weather for " + daysReturned + " is " + weatherForEachDay );
+            String descriptionForEachDay = element.findElement(By.xpath(".//div[@class='city_fc_desc fs0']")).getText();
+
+            System.out.println("The weather for " + daysReturned +" "+dateReturned+ " is " + descriptionForEachDay + " at a temperature of " + weatherForEachDay );
         }
 
         driver.quit();
